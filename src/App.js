@@ -7,11 +7,34 @@ import AddBook from "./components/AddBook";
 import Books from "./components/Book/Books";
 import About from "./components/About";
 import BookDetail from "./components/Book/BookDetail";
-function App() {
+
+import logo from "./logo.svg";
+import "@aws-amplify/ui-react/styles.css";
+import {
+  withAuthenticator,
+  Button,
+  Heading,
+  Image,
+  View,
+  Card,
+} from "@aws-amplify/ui-react";
+
+
+
+function App({signOut}) {
   return (
+    
     <React.Fragment>
       <header>
         <Header />
+        <View className="App">
+      <Card>
+        <Image src={logo} className="App-logo" alt="logo" />
+        <Heading level={1}>We now have Auth!</Heading>
+      </Card>
+      <Button onClick={signOut}>Sign Out</Button>
+    </View>
+        
       </header>
       <main>
         <Routes>
